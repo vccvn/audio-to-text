@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <title>Doãn yêu Hiền VCC </title>
+
+    <!-- http-equive -->
+    <meta http-equiv="Content-Language" content=”vi”>
+    <meta http-equiv="Content-Type" content=”text/html; charset=utf-8″>
+    <meta http-equiv="description" content="Công cụ chuyển file âm thanh thành văn bản dành cho Hiền" />
+    <meta http-equiv="keywords" content="audio to text, convert audio to text">
+    <!-- /http-equive -->
+
+
+    <meta name="title" content="Doãn yêu Hiền nhiều lắm">
+    <meta name="description" content="Công cụ chuyển file âm thanh thành văn bản dành cho Hiền">
+    <meta name="keywords" content="audio to text, convert audio to text">
+    <meta name="image" content="image.jpg">
+
+    
+    
+    <!-- seo -->
+    <link rel="canonical" href="http://doanyeuhien.vcc.vn" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Chuyển đổi audio thành văn bản" />
+    <meta property="og:description" content="Công cụ chuyển file âm thanh thành văn bản dành cho Hiền" />
+    <meta property="og:url" content="http://doanyeuhien.vcc.vn" />
+    <meta property="og:site_name" content="Doãn yêu Hiền" />
+
+        
+    <meta property="og:image" content="image.jpg" />
+
+    <meta name="apple-mobile-web-app-title" content="DH Corp">
+
+    <link rel="apple-touch-icon" type="image/png" href="http://doanln.chinhlatoi.vn/static/webs/1/settings/siteinfo/favicon.png" />
+    
+    <link rel="shortcut icon" type="image/x-icon" href="http://doanln.chinhlatoi.vn/static/webs/1/settings/siteinfo/favicon.png" />
+    
+    <!-- <link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" /> -->
+
+
+    
+    
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Pacifico'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.css">
+
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body class="login-body">
+    <div class="row">
+        <div class="input-cart col s12 m10 push-m1 z-depth-2 grey lighten-5">
+            <div class="col s12 m5 login">
+                <h4 class="center">Audio</h4>
+                <br>
+                <div class="guide">
+                    Định dạng được hỗ trợ tốt nhất: wav
+                    <br> 
+                    Bạn có thể truy cập trang web sau để đổi định dạng file <br> 
+                    <a href="https://convertio.co/vn/audio-converter/" target="_blank">https://convertio.co/vn/audio-converter/</a> <br>
+                    sau đó quay lại đây để chuyển sang văn bản
+                    <br>
+                </div>
+                
+                <form action="http://103.237.145.120:1998/api/upload-and-convert" enctype="multipart/form-data" method="POST" id="upload-form">
+                    <label for="language">Chọn file: </label>
+                    <div class="custom-file">
+                        <input type="file" name="audiofile" id="audiofile" class="custom-file-input">
+                        <label class="custom-file-label" for="audiofile">Chưa có file nào dược chọn</label>
+                    </div>
+                    <div class="input-group1">
+                        <label for="language">Ngôn Ngữ: </label>
+                        <select name="lang" id="language">
+                            <option value="1">Tiếng Việt</option>
+                            <option value="2">English</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="switch col s8">
+                            <p style="margin: 0; padding: 0; font-size: 15px;">
+                                <strong>Hiền có yêu Doãn không?</strong>
+                            </p>
+                        </div>
+                        <div class="col s4">
+                            <button type="submit" name="login" class="btn waves-effect waves-light blue right">Có</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Signup form -->
+            <div class="col s12 m7 signup">
+                <h4 class="center">Kết quả</h4>
+                <br>
+
+                <textarea name="result" class="text-result" id="text-result" cols="30" rows="10"></textarea>
+            </div>
+
+            <div class="col s12">
+                <br>
+                <div class="legal center">
+                </div>
+                <div class="legal center">
+                    <div class="col s12 m7 right">
+                        <p class="grey-text policy center">By signing up, you agree on our <a href="#!">Privacy Policy</a> and <a href="#!">Terms of Use</a> including <a href="#!">Cookie Use</a>.</p>
+                    </div>
+                    <div class="col s12 m5">
+                        <p class="center grey-text" style="font-size: 14px;">Dev : <a href="http://fb.com/LeNgocDoan" class="main-title red-text" target="_blank">Doãn ♥ Hiền</a></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.2/axios.js" integrity="sha512-+ecColBefciRqCnk6BryufDiFGnrwPLZlW3TxS8waBoBI+nDi8/LGZRwaaqr7NLZT2l0UG3KYbF+/njeAlKvVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="app.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
